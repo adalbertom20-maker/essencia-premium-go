@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Essência Premium GO — Perfumes Hinode</title>
+
+<!-- PIXEL DO FACEBOOK -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1234186678575456');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1234186678575456&ev=PageView&noscript=1"/></noscript>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black: #080808;
+    --dark: #111111;
+    --card: #161616;
+    --border: #2a2a2a;
+    --gold: #c9a84c;
+    --gold-light: #e8c87a;
+    --white: #f5f0e8;
+    --muted: #888880;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Montserrat', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 20px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: linear-gradient(to bottom, rgba(8,8,8,0.95), transparent);
+  }
+  .logo {
+    font-family: var(--font-display); font-size: 1.1rem;
+    font-weight: 400; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold);
+  }
+  .logo span { color: var(--white); font-weight: 300; }
+  .header-links { display: flex; gap: 24px; align-items: center; }
+  .header-cta {
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); text-decoration: none;
+    border-bottom: 1px solid var(--gold); padding-bottom: 2px; transition: opacity 0.3s;
+  }
+  .header-cta:hover { opacity: 0.7; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+    position: relative; overflow: hidden;
+  }
+  .hero-image { position: relative; overflow: hidden; }
+  .hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: brightness(0.75); }
+  .hero-image::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to right, transparent 60%, var(--black));
+  }
+  .hero-content {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 60px 80px 40px;
+  }
+  .hero-eyebrow { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+  .hero-title { font-family: var(--font-display); font-size: clamp(3rem, 5vw, 5rem); font-weight: 300; line-height: 1.05; margin-bottom: 8px; }
+  .hero-title em { font-style: italic; color: var(--gold-light); }
+  .hero-subtitle { font-family: var(--font-display); font-size: clamp(1.2rem, 2vw, 1.8rem); font-weight: 300; color: var(--muted); margin-bottom: 40px; font-style: italic; }
+  .hero-desc { font-size: 0.8rem; line-height: 1.9; color: #aaa; max-width: 380px; margin-bottom: 48px; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--gold); color: var(--black); text-decoration: none;
+    padding: 16px 36px; font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase; transition: all 0.3s; width: fit-content;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.25); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 12px;
+    border: 1px solid var(--border); color: var(--white); text-decoration: none;
+    padding: 16px 36px; font-size: 0.7rem; font-weight: 400;
+    letter-spacing: 0.25em; text-transform: uppercase; transition: all 0.3s; width: fit-content;
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* WHATSAPP FLUTUANTE */
+  .whatsapp-float {
+    position: fixed; bottom: 32px; right: 32px; z-index: 999;
+    display: flex; align-items: center; gap: 12px;
+    background: #25D366; color: #fff; text-decoration: none;
+    padding: 14px 24px; border-radius: 50px;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    box-shadow: 0 8px 32px rgba(37,211,102,0.4);
+    transition: all 0.3s; animation: pulse 2s infinite;
+  }
+  .whatsapp-float:hover { background: #1ebe5d; transform: translateY(-3px); box-shadow: 0 16px 48px rgba(37,211,102,0.5); animation: none; }
+  .whatsapp-float svg { width: 22px; height: 22px; fill: white; flex-shrink: 0; }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 8px 32px rgba(37,211,102,0.4); }
+    50% { box-shadow: 0 8px 48px rgba(37,211,102,0.7); }
+  }
+
+  /* BANNER */
+  .banner-strip { background: var(--gold); padding: 20px 40px; text-align: center; }
+  .banner-strip p { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--black); font-weight: 600; }
+
+  /* SECTIONS */
+  .section-eyebrow { font-size: 0.6rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 16px; }
+  .section-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; text-align: center; line-height: 1.1; margin-bottom: 60px; }
+  .section-title em { font-style: italic; color: var(--gold-light); }
+
+  /* PRODUTOS */
+  .produtos-wrapper { background: var(--black); padding: 100px 0 0; }
+  .produtos-header { padding: 0 40px; margin-bottom: 60px; }
+  .produtos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--border); }
+  .produto-card { background: var(--card); overflow: hidden; cursor: pointer; transition: transform 0.4s; }
+  .produto-card:hover { transform: translateY(-4px); z-index: 1; }
+  .produto-img-wrap { overflow: hidden; height: 320px; }
+  .produto-img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: brightness(0.85); transition: filter 0.4s, transform 0.6s; }
+  .produto-card:hover .produto-img { filter: brightness(1); transform: scale(1.03); }
+  .produto-info { padding: 24px 24px 28px; border-top: 1px solid var(--border); }
+  .produto-tag { font-size: 0.55rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .produto-nome { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; margin-bottom: 8px; }
+  .produto-desc { font-size: 0.7rem; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
+  .produto-preco { font-family: var(--font-display); font-size: 1.3rem; font-weight: 300; color: var(--gold-light); }
+  .produto-btn {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin-top: 16px; background: var(--gold); border: none;
+    color: var(--black); text-decoration: none; padding: 14px;
+    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; transition: all 0.3s; cursor: pointer; width: 100%;
+  }
+  .produto-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .produto-btn svg { width: 16px; height: 16px; fill: var(--black); }
+
+  /* LINHA COMPLETA */
+  .linha-bg { background: var(--dark); padding: 100px 40px; }
+  .linha-inner { max-width: 1200px; margin: 0 auto; }
+  .linha-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); margin-bottom: 48px; }
+  .linha-item { background: var(--card); padding: 32px 28px; border-top: 2px solid transparent; transition: border-color 0.3s; }
+  .linha-item:hover { border-color: var(--gold); }
+  .linha-icon { font-size: 1.5rem; margin-bottom: 14px; display: block; }
+  .linha-nome { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; margin-bottom: 8px; }
+  .linha-desc { font-size: 0.7rem; color: var(--muted); line-height: 1.7; }
+  .linha-cta { text-align: center; }
+  .linha-cta p { font-size: 0.78rem; color: var(--muted); margin-bottom: 24px; line-height: 1.8; }
+
+  /* DIFERENCIAIS */
+  .diferenciais-wrapper { padding: 100px 40px; max-width: 1200px; margin: 0 auto; }
+  .diferenciais-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; }
+  .diferencial { text-align: center; padding: 40px 24px; border: 1px solid var(--border); transition: border-color 0.3s; }
+  .diferencial:hover { border-color: var(--gold); }
+  .diferencial-icon { font-size: 2rem; margin-bottom: 20px; display: block; }
+  .diferencial-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; margin-bottom: 12px; }
+  .diferencial-desc { font-size: 0.72rem; color: var(--muted); line-height: 1.8; }
+
+  /* DEPOIMENTOS */
+  .depoimentos-bg { background: #161616; padding: 100px 40px; }
+  .depoimentos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto; }
+  .depoimento { padding: 36px; border: 1px solid #3a3a3a; background: #1e1e1e; position: relative; }
+  .depoimento::before { content: '"'; font-family: var(--font-display); font-size: 5rem; color: var(--gold); opacity: 0.5; position: absolute; top: 10px; left: 28px; line-height: 1; }
+  .depoimento-texto { font-size: 0.8rem; line-height: 2; color: #d8d4cc; margin-bottom: 24px; padding-top: 20px; }
+  .depoimento-autor { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); }
+  .stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 16px; letter-spacing: 2px; }
+
+  /* CTA FINAL */
+  .cta-final {
+    text-align: center; padding: 120px 40px;
+    background: linear-gradient(135deg, #0d0d0d 0%, #1a1500 50%, #0d0d0d 100%);
+    position: relative; overflow: hidden;
+  }
+  .cta-final::before {
+    content: ''; position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-final-title { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.1; margin-bottom: 20px; }
+  .cta-final-sub { font-size: 0.8rem; color: var(--muted); margin-bottom: 48px; }
+  .btn-whatsapp-grande {
+    display: inline-flex; align-items: center; gap: 14px;
+    background: #25D366; color: #fff; text-decoration: none;
+    padding: 22px 56px; font-size: 0.85rem; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    transition: all 0.3s; border-radius: 2px;
+    box-shadow: 0 8px 32px rgba(37,211,102,0.3);
+  }
+  .btn-whatsapp-grande:hover { background: #1ebe5d; transform: translateY(-3px); box-shadow: 0 16px 48px rgba(37,211,102,0.5); }
+  .btn-whatsapp-grande svg { width: 26px; height: 26px; fill: white; }
+
+  /* FOOTER */
+  footer { padding: 40px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+  footer p { font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; }
+
+  /* POPUP */
+  .popup-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 1000; display: none; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+  .popup-overlay.active { display: flex; }
+  .popup { background: var(--card); border: 1px solid var(--border); padding: 52px 44px; max-width: 460px; width: 90%; position: relative; animation: popupIn 0.4s ease; }
+  @keyframes popupIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .popup-close { position: absolute; top: 16px; right: 20px; background: none; border: none; color: var(--muted); font-size: 1.4rem; cursor: pointer; transition: color 0.2s; }
+  .popup-close:hover { color: var(--white); }
+  .popup-eyebrow { font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .popup-title { font-family: var(--font-display); font-size: 1.8rem; font-weight: 300; margin-bottom: 8px; }
+  .popup-sub { font-size: 0.72rem; color: var(--muted); margin-bottom: 24px; line-height: 1.7; }
+  .popup-produto-destaque { font-size: 0.65rem; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 24px; padding: 8px 14px; border: 1px solid var(--border); display: inline-block; }
+  .popup input { width: 100%; background: var(--dark); border: 1px solid var(--border); color: var(--white); padding: 14px 18px; font-size: 0.78rem; font-family: var(--font-body); margin-bottom: 12px; outline: none; transition: border-color 0.3s; }
+  .popup input:focus { border-color: var(--gold); }
+  .popup input::placeholder { color: var(--muted); }
+  .popup-btn { width: 100%; background: #25D366; color: #fff; border: none; padding: 18px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; margin-top: 4px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+  .popup-btn:hover { background: #1ebe5d; }
+  .popup-btn svg { width: 20px; height: 20px; fill: white; }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) { .produtos-grid { grid-template-columns: repeat(2, 1fr); } .linha-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 768px) {
+    header { padding: 16px 20px; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-image { height: 50vh; }
+    .hero-image::after { background: linear-gradient(to top, var(--black) 20%, transparent); }
+    .hero-content { padding: 40px 24px 80px; }
+    .diferenciais-grid { grid-template-columns: 1fr; gap: 16px; }
+    .depoimentos-grid { grid-template-columns: 1fr; }
+    .depoimentos-bg { padding: 70px 24px; }
+    .linha-bg { padding: 70px 24px; }
+    .linha-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 16px; text-align: center; }
+    .produtos-grid { grid-template-columns: 1fr; gap: 1px; }
+    .whatsapp-float { bottom: 16px; right: 16px; padding: 12px 20px; font-size: 0.65rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- WHATSAPP FLUTUANTE -->
+<a href="#" class="whatsapp-float" onclick="openPopup('Falar com especialista'); return false;">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  Falar com especialista
+</a>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">Essência <span>Premium GO</span></div>
+  <div class="header-links">
+    <a href="https://bpmvgpihsaghqpzqhvql.supabase.co/storage/v1/object/public/hinode/Catalogo%20hinode%20completo.pdf" target="_blank" class="header-cta">Ver catálogo</a>
+    <a href="#" class="header-cta" onclick="openPopup('Falar com especialista'); return false;">Falar com especialista</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-image">
+    <img src="ChatGPT Image 26 de jan. de 2026, 00_38_43.png" alt="Empire Hinode">
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Perfumaria Premium · Goiânia</p>
+    <h1 class="hero-title">A fragrância<br>que te <em>define</em></h1>
+    <p class="hero-subtitle">Coleção Hinode</p>
+    <p class="hero-desc">Perfumes de alta fixação com notas sofisticadas que marcam presença. Cada frasco é uma declaração — de estilo, de personalidade, de poder.</p>
+    <div style="display:flex; gap:16px; flex-wrap:wrap;">
+      <a href="#produtos" class="btn-primary">Ver perfumes</a>
+      <a href="https://bpmvgpihsaghqpzqhvql.supabase.co/storage/v1/object/public/hinode/Catalogo%20hinode%20completo.pdf" target="_blank" class="btn-secondary">Ver catálogo completo</a>
+    </div>
+  </div>
+</div>
+
+<!-- BANNER -->
+<div class="banner-strip">
+  <p>✦ &nbsp; Entrega em Goiânia e Aparecida de Goiânia &nbsp; ✦ &nbsp; Atendimento via WhatsApp &nbsp; ✦ &nbsp; Alta fixação garantida &nbsp; ✦</p>
+</div>
+
+<!-- PRODUTOS -->
+<div class="produtos-wrapper" id="produtos">
+  <div class="produtos-header">
+    <p class="section-eyebrow reveal">Coleção Exclusiva</p>
+    <h2 class="section-title reveal">Nossos <em>destaques</em></h2>
+  </div>
+  <div class="produtos-grid">
+
+    <div class="produto-card reveal">
+      <div class="produto-img-wrap"><img class="produto-img" src="ChatGPT Image 26 de jan. de 2026, 00_38_43.png" alt="Empire"></div>
+      <div class="produto-info">
+        <p class="produto-tag">Masculino · Intenso</p>
+        <h3 class="produto-nome">Empire</h3>
+        <p class="produto-desc">Madeiroso aromático com notas de bergamota, cedro e almíscar. Presença marcante, fixação duradoura.</p>
+        <p class="produto-preco">R$ 199,90</p>
+        <a href="#" class="produto-btn" onclick="openPopup('Empire — R$ 199,90'); return false;">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Quero este perfume
+        </a>
+      </div>
+    </div>
+
+    <div class="produto-card reveal">
+      <div class="produto-img-wrap"><img class="produto-img" src="empire-icon.jpg.jfif" alt="Empire Icon"></div>
+      <div class="produto-info">
+        <p class="produto-tag">Masculino · Premium</p>
+        <h3 class="produto-nome">Empire Icon</h3>
+        <p class="produto-desc">Deo Parfum icônico com notas quentes e sensuais. Para o homem que não passa despercebido.</p>
+        <p class="produto-preco">R$ 279,90</p>
+        <a href="#" class="produto-btn" onclick="openPopup('Empire Icon — R$ 279,90'); return false;">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Quero este perfume
+        </a>
+      </div>
+    </div>
+
+    <div class="produto-card reveal">
+      <div class="produto-img-wrap"><img class="produto-img" src="Gemini_Generated_Image_hyi34khyi34khyi3.png" alt="Empire 400"></div>
+      <div class="produto-info">
+        <p class="produto-tag">Masculino · Sofisticado</p>
+        <h3 class="produto-nome">Empire 400</h3>
+        <p class="produto-desc">Elegância refinada para o ambiente corporativo. Notas amadeiradas com toque de especiarias.</p>
+        <p class="produto-preco">R$ 199,90</p>
+        <a href="#" class="produto-btn" onclick="openPopup('Empire 400 — R$ 199,90'); return false;">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Quero este perfume
+        </a>
+      </div>
+    </div>
+
+    <div class="produto-card reveal">
+      <div class="produto-img-wrap"><img class="produto-img" src="EMPIRE INTENSE.png" alt="Empire Intense"></div>
+      <div class="produto-info">
+        <p class="produto-tag">Masculino · Amadeirado</p>
+        <h3 class="produto-nome">Empire Intense</h3>
+        <p class="produto-desc">Amadeirado elegante com lavanda francesa. Uma fragrância de presença marcante e sofisticação duradoura.</p>
+        <p class="produto-preco">R$ 199,90</p>
+        <a href="#" class="produto-btn" onclick="openPopup('Empire Intense — R$ 199,90'); return false;">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Quero este perfume
+        </a>
+      </div>
+    </div>
+
+    <div class="produto-card reveal">
+      <div class="produto-img-wrap"><img class="produto-img" src="Gemini_Generated_Image_71knx871knx871kn (1).png" alt="Inebriante"></div>
+      <div class="produto-info">
+        <p class="produto-tag">Masculino · Eau de Parfum</p>
+        <h3 class="produto-nome">Inebriante</h3>
+        <p class="produto-desc">Notas de bergamota, lavanda e sândalo em uma composição irresistível. Sofisticação em estado puro.</p>
+        <p class="produto-preco">R$ 289,90</p>
+        <a href="#" class="produto-btn" onclick="openPopup('Inebriante — R$ 289,90'); return false;">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Quero este perfume
+        </a>
+      </div>
+    </div>
+
+    <div class="produto-card reveal">
+      <div class="produto-img-wrap"><img class="produto-img" src="br-11134207-7r98o-m17d0cveucnkc7.jfif" alt="Grace"></div>
+      <div class="produto-info">
+        <p class="produto-tag">Feminino · Floral</p>
+        <h3 class="produto-nome">Grace</h3>
+        <p class="produto-desc">Floral delicado com coração de rosa e jasmim. Feminilidade em estado puro com longa duração.</p>
+        <p class="produto-preco">R$ 179,90</p>
+        <a href="#" class="produto-btn" onclick="openPopup('Grace — R$ 179,90'); return false;">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Quero este perfume
+        </a>
+      </div>
+    </div>
+
+    <div class="produto-card reveal">
+      <div class="produto-img-wrap"><img class="produto-img" src="Gemini_Generated_Image_ktow67ktow67ktow.png" alt="Grace Lumière"></div>
+      <div class="produto-info">
+        <p class="produto-tag">Feminino · Aquático</p>
+        <h3 class="produto-nome">Grace Lumière</h3>
+        <p class="produto-desc">Inspirado nas águas turquesas do sul da França. Notas de pera, jasmim e âmbar cristalino.</p>
+        <p class="produto-preco">R$ 179,90</p>
+        <a href="#" class="produto-btn" onclick="openPopup('Grace Lumière — R$ 179,90'); return false;">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Quero este perfume
+        </a>
+      </div>
+    </div>
+
+    <div class="produto-card reveal">
+      <div class="produto-img-wrap"><img class="produto-img" src="INEBRIANTE ZAYD ELIXIR FOR HIM.png" alt="Inebriante Zayd Elixir for Him"></div>
+      <div class="produto-info">
+        <p class="produto-tag">Masculino · Amadeirado · Sedutor</p>
+        <h3 class="produto-nome">Inebriante Zayd Elixir for Him</h3>
+        <p class="produto-desc">Amadeirado sedutor com notas de cardamomo, cipreste e guaiac. 100ml de pura sofisticação.</p>
+        <p class="produto-preco">R$ 449,90</p>
+        <a href="#" class="produto-btn" onclick="openPopup('Inebriante Zayd Elixir for Him — R$ 449,90'); return false;">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Quero este perfume
+        </a>
+      </div>
+    </div>
+
+    <div class="produto-card reveal">
+      <div class="produto-img-wrap"><img class="produto-img" src="Enigma.png" alt="Enigma"></div>
+      <div class="produto-info">
+        <p class="produto-tag">Masculino · Aromático</p>
+        <h3 class="produto-nome">Enigma</h3>
+        <p class="produto-desc">Aromático envolvente de 100ml. Uma fragrância misteriosa que conquista e surpreende.</p>
+        <p class="produto-preco">R$ 169,90</p>
+        <a href="#" class="produto-btn" onclick="openPopup('Enigma — R$ 169,90'); return false;">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Quero este perfume
+        </a>
+      </div>
+    </div>
+
+    <div class="produto-card reveal">
+      <div class="produto-img-wrap"><img class="produto-img" src="Gemini_Generated_Image_o17mcyo17mcyo17m.png" alt="Grand"></div>
+      <div class="produto-info">
+        <p class="produto-tag">Masculino · Amadeirado</p>
+        <h3 class="produto-nome">Grand / Grand Reserva</h3>
+        <p class="produto-desc">Para o homem que deixa um rastro de poder. Especiarias, lavanda, âmbar e baunilha.</p>
+        <p class="produto-preco">R$ 159,90</p>
+        <a href="#" class="produto-btn" onclick="openPopup('Grand — R$ 159,90'); return false;">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Quero este perfume
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- LINHA COMPLETA -->
+<div class="linha-bg">
+  <div class="linha-inner">
+    <p class="section-eyebrow reveal">Muito além dos perfumes</p>
+    <h2 class="section-title reveal">A linha <em>completa</em> Hinode</h2>
+    <div class="linha-grid">
+      <div class="linha-item reveal"><span class="linha-icon">✦</span><h3 class="linha-nome">Fragrâncias</h3><p class="linha-desc">Perfumes, deo colônias e body splashes masculinos e femininos com alta fixação e sillage marcante.</p></div>
+      <div class="linha-item reveal"><span class="linha-icon">◈</span><h3 class="linha-nome">Maquiagem</h3><p class="linha-desc">Linha Dazzle completa — batons, bases, corretivos e sombras com acabamento profissional.</p></div>
+      <div class="linha-item reveal"><span class="linha-icon">◇</span><h3 class="linha-nome">Cuidados Pessoais</h3><p class="linha-desc">Hidratantes, óleos corporais e produtos para banho que cuidam da pele com ingredientes premium.</p></div>
+      <div class="linha-item reveal"><span class="linha-icon">○</span><h3 class="linha-nome">Cabelos</h3><p class="linha-desc">Shampoos, condicionadores e máscaras de tratamento para todos os tipos de cabelo.</p></div>
+      <div class="linha-item reveal"><span class="linha-icon">△</span><h3 class="linha-nome">Cuidados Faciais</h3><p class="linha-desc">Linha Routine Dermo com soluções dermatológicas para uma rotina de skincare completa.</p></div>
+      <div class="linha-item reveal"><span class="linha-icon">□</span><h3 class="linha-nome">Bem-estar</h3><p class="linha-desc">Suplementos, chás, shakes e colágenos da linha HND para uma vida mais saudável.</p></div>
+    </div>
+    <div class="linha-cta reveal">
+      <p>Quer conhecer produtos de outras categorias? Fale com nosso especialista e descubra tudo que temos pra você.</p>
+      <a href="#" class="btn-primary" onclick="openPopup('Linha Completa Hinode'); return false;">Falar com especialista</a>
+    </div>
+  </div>
+</div>
+
+<!-- DIFERENCIAIS -->
+<div class="diferenciais-wrapper">
+  <p class="section-eyebrow reveal">Por que escolher</p>
+  <h2 class="section-title reveal">Essência <em>Premium GO</em></h2>
+  <div class="diferenciais-grid">
+    <div class="diferencial reveal"><span class="diferencial-icon">✦</span><h3 class="diferencial-title">Alta Fixação</h3><p class="diferencial-desc">Fragrâncias com fixação de longa duração. Você sente o perfume do início ao fim do dia.</p></div>
+    <div class="diferencial reveal"><span class="diferencial-icon">◈</span><h3 class="diferencial-title">Entrega Rápida</h3><p class="diferencial-desc">Atendimento e entrega em Goiânia e Aparecida de Goiânia com agilidade e segurança.</p></div>
+    <div class="diferencial reveal"><span class="diferencial-icon">◇</span><h3 class="diferencial-title">Atendimento Exclusivo</h3><p class="diferencial-desc">Consultoria personalizada via WhatsApp. Te ajudamos a encontrar a fragrância ideal para o seu estilo.</p></div>
+  </div>
+</div>
+
+<!-- DEPOIMENTOS -->
+<div class="depoimentos-bg">
+  <p class="section-eyebrow reveal">Clientes satisfeitos</p>
+  <h2 class="section-title reveal">O que dizem sobre <em>nós</em></h2>
+  <div class="depoimentos-grid">
+    <div class="depoimento reveal"><div class="stars">★★★★★</div><p class="depoimento-texto">Comprei o Empire e simplesmente não consigo parar de receber elogios. Fixação incrível, dura o dia todo.</p><p class="depoimento-autor">— Carlos M., Goiânia</p></div>
+    <div class="depoimento reveal"><div class="stars">★★★★★</div><p class="depoimento-texto">O Grace Lumière é perfeito, cheirinho suave e elegante. Atendimento super rápido e chegou bem embalado.</p><p class="depoimento-autor">— Fernanda L., Aparecida de Goiânia</p></div>
+    <div class="depoimento reveal"><div class="stars">★★★★★</div><p class="depoimento-texto">Já comprei três vezes. O Inebriante é diferente de tudo que já usei. Atendimento excelente, entrega no prazo.</p><p class="depoimento-autor">— Rafael S., Goiânia</p></div>
+  </div>
+</div>
+
+<!-- CTA FINAL -->
+<div class="cta-final">
+  <p class="section-eyebrow reveal">Pronto para se destacar?</p>
+  <h2 class="cta-final-title reveal">Encontre sua<br><em>fragrância ideal</em></h2>
+  <p class="cta-final-sub reveal">Fale com nosso especialista agora e receba uma indicação personalizada</p>
+  <a href="#" class="btn-whatsapp-grande reveal" onclick="openPopup('Quero meu perfume ideal'); return false;">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Falar no WhatsApp agora
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Essência Premium GO — Todos os direitos reservados</p>
+  <p>Goiânia & Aparecida de Goiânia · GO</p>
+</footer>
+
+<!-- POPUP -->
+<div class="popup-overlay" id="popupOverlay">
+  <div class="popup">
+    <button class="popup-close" onclick="closePopup()">×</button>
+    <p class="popup-eyebrow">Quase lá!</p>
+    <h3 class="popup-title">Só mais um passo</h3>
+    <p class="popup-sub">Deixe seu nome para receber atendimento personalizado e garantir seu perfume.</p>
+    <span class="popup-produto-destaque" id="popupProduto"></span>
+    <input type="text" id="popupNome" placeholder="Seu nome" maxlength="60">
+    <input type="tel" id="popupTel" placeholder="Seu WhatsApp (62 9XXXX-XXXX)" maxlength="20">
+    <button class="popup-btn" onclick="irParaWhatsApp()">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Falar com especialista agora →
+    </button>
+  </div>
+</div>
+
+<script>
+  const WHATSAPP_NUMBER = '5562993238472';
+  let produtoSelecionado = '';
+
+  function openPopup(produto) {
+    produtoSelecionado = produto;
+    document.getElementById('popupProduto').textContent = produto;
+    document.getElementById('popupOverlay').classList.add('active');
+    document.getElementById('popupNome').value = '';
+    document.getElementById('popupTel').value = '';
+    setTimeout(() => document.getElementById('popupNome').focus(), 100);
+    if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', { content_name: produto });
+  }
+
+  function closePopup() {
+    document.getElementById('popupOverlay').classList.remove('active');
+  }
+
+  function irParaWhatsApp() {
+    const nome = document.getElementById('popupNome').value.trim();
+    if (!nome) {
+      document.getElementById('popupNome').style.borderColor = '#c9a84c';
+      document.getElementById('popupNome').focus();
+      return;
+    }
+    if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: produtoSelecionado, content_category: 'Perfume Hinode' });
+    const msg = encodeURIComponent('Olá! Me chamo ' + nome + ' e tenho interesse no ' + produtoSelecionado + '. Pode me ajudar?');
+    window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + msg, '_blank');
+    closePopup();
+  }
+
+  document.getElementById('popupOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closePopup();
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  const produtosEl = document.getElementById('produtos');
+  if (produtosEl) {
+    new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && typeof fbq !== 'undefined') fbq('track', 'ViewContent', { content_category: 'Perfumes Hinode' });
+      });
+    }, { threshold: 0.3 }).observe(produtosEl);
+  }
+</script>
+</body>
+</html>
