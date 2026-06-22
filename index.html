@@ -121,6 +121,30 @@ src="https://www.facebook.com/tr?id=1234186678575456&ev=PageView&noscript=1"/></
   .banner-strip { background: var(--gold); padding: 20px 40px; text-align: center; }
   .banner-strip p { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--black); font-weight: 600; }
 
+  /* CARROSSEL DE CATEGORIAS */
+  .categorias-scroll { background: var(--dark); border-bottom: 1px solid var(--border); padding: 22px 0; overflow: hidden; position: relative; }
+  .categorias-scroll::before, .categorias-scroll::after {
+    content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
+  }
+  .categorias-scroll::before { left: 0; background: linear-gradient(to right, var(--dark), transparent); }
+  .categorias-scroll::after { right: 0; background: linear-gradient(to left, var(--dark), transparent); }
+  .categorias-track {
+    display: flex; gap: 56px; width: max-content;
+    animation: scrollCategorias 28s linear infinite;
+  }
+  .categorias-scroll:hover .categorias-track { animation-play-state: paused; }
+  .categoria-item {
+    display: flex; align-items: center; gap: 10px; white-space: nowrap;
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
+    cursor: pointer; transition: color 0.3s;
+  }
+  .categoria-item:hover { color: var(--gold-light); }
+  .categoria-item .categoria-icon { color: var(--gold); font-size: 0.9rem; }
+  @keyframes scrollCategorias {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
   /* SECTIONS */
   .section-eyebrow { font-size: 0.6rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 16px; }
   .section-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; text-align: center; line-height: 1.1; margin-bottom: 60px; }
@@ -164,7 +188,7 @@ src="https://www.facebook.com/tr?id=1234186678575456&ev=PageView&noscript=1"/></
 
   /* DIFERENCIAIS */
   .diferenciais-wrapper { padding: 100px 40px; max-width: 1200px; margin: 0 auto; }
-  .diferenciais-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; }
+  .diferenciais-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-top: 60px; }
   .diferencial { text-align: center; padding: 40px 24px; border: 1px solid var(--border); transition: border-color 0.3s; }
   .diferencial:hover { border-color: var(--gold); }
   .diferencial-icon { font-size: 2rem; margin-bottom: 20px; display: block; }
@@ -223,6 +247,7 @@ src="https://www.facebook.com/tr?id=1234186678575456&ev=PageView&noscript=1"/></
   .popup input { width: 100%; background: var(--dark); border: 1px solid var(--border); color: var(--white); padding: 14px 18px; font-size: 0.78rem; font-family: var(--font-body); margin-bottom: 12px; outline: none; transition: border-color 0.3s; }
   .popup input:focus { border-color: var(--gold); }
   .popup input::placeholder { color: var(--muted); }
+  .popup-pagamento { font-size: 0.68rem; color: var(--gold-light); margin-bottom: 18px; line-height: 1.6; }
   .popup-btn { width: 100%; background: #25D366; color: #fff; border: none; padding: 18px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; margin-top: 4px; display: flex; align-items: center; justify-content: center; gap: 10px; }
   .popup-btn:hover { background: #1ebe5d; }
   .popup-btn svg { width: 20px; height: 20px; fill: white; }
@@ -232,7 +257,7 @@ src="https://www.facebook.com/tr?id=1234186678575456&ev=PageView&noscript=1"/></
   .reveal.visible { opacity: 1; transform: none; }
 
   /* RESPONSIVE */
-  @media (max-width: 1024px) { .produtos-grid { grid-template-columns: repeat(2, 1fr); } .linha-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 1024px) { .produtos-grid { grid-template-columns: repeat(2, 1fr); } .linha-grid { grid-template-columns: repeat(2, 1fr); } .diferenciais-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 768px) {
     header { padding: 16px 20px; }
     .hero { grid-template-columns: 1fr; min-height: auto; }
@@ -286,7 +311,19 @@ src="https://www.facebook.com/tr?id=1234186678575456&ev=PageView&noscript=1"/></
 
 <!-- BANNER -->
 <div class="banner-strip">
-  <p>✦ &nbsp; Entrega em Goiânia e Aparecida de Goiânia &nbsp; ✦ &nbsp; Atendimento via WhatsApp &nbsp; ✦ &nbsp; Alta fixação garantida &nbsp; ✦</p>
+  <p>✦ &nbsp; Entrega em Goiânia e Aparecida de Goiânia &nbsp; ✦ &nbsp; Pagamento somente na entrega &nbsp; ✦ &nbsp; Atendimento via WhatsApp &nbsp; ✦</p>
+</div>
+
+<!-- CARROSSEL DE CATEGORIAS -->
+<div class="categorias-scroll">
+  <div class="categorias-track" id="categoriasTrack">
+    <a href="#produtos" class="categoria-item"><span class="categoria-icon">✦</span>Fragrâncias</a>
+    <a href="#" class="categoria-item" onclick="openPopup('Linha Maquiagem Dazzle'); return false;"><span class="categoria-icon">◈</span>Maquiagem</a>
+    <a href="#" class="categoria-item" onclick="openPopup('Cuidados Pessoais'); return false;"><span class="categoria-icon">◇</span>Cuidados Pessoais</a>
+    <a href="#" class="categoria-item" onclick="openPopup('Linha Cabelos H-Expert'); return false;"><span class="categoria-icon">○</span>Cabelos</a>
+    <a href="#" class="categoria-item" onclick="openPopup('Linha Facial Routine Dermo'); return false;"><span class="categoria-icon">△</span>Cuidados Faciais</a>
+    <a href="#" class="categoria-item" onclick="openPopup('Linha Bem-estar HND'); return false;"><span class="categoria-icon">□</span>Bem-estar</a>
+  </div>
 </div>
 
 <!-- PRODUTOS -->
@@ -496,6 +533,7 @@ src="https://www.facebook.com/tr?id=1234186678575456&ev=PageView&noscript=1"/></
     <div class="diferencial reveal"><span class="diferencial-icon">✦</span><h3 class="diferencial-title">Alta Fixação</h3><p class="diferencial-desc">Fragrâncias com fixação de longa duração. Você sente o perfume do início ao fim do dia.</p></div>
     <div class="diferencial reveal"><span class="diferencial-icon">◈</span><h3 class="diferencial-title">Entrega Rápida</h3><p class="diferencial-desc">Atendimento e entrega em Goiânia e Aparecida de Goiânia com agilidade e segurança.</p></div>
     <div class="diferencial reveal"><span class="diferencial-icon">◇</span><h3 class="diferencial-title">Atendimento Exclusivo</h3><p class="diferencial-desc">Consultoria personalizada via WhatsApp. Te ajudamos a encontrar a fragrância ideal para o seu estilo.</p></div>
+    <div class="diferencial reveal"><span class="diferencial-icon">🛵</span><h3 class="diferencial-title">Pagamento na Entrega</h3><p class="diferencial-desc">Sem risco, sem pagar antes. Você só paga quando o produto chegar nas suas mãos.</p></div>
   </div>
 </div>
 
@@ -536,7 +574,7 @@ src="https://www.facebook.com/tr?id=1234186678575456&ev=PageView&noscript=1"/></
     <p class="popup-sub">Deixe seu nome para receber atendimento personalizado e garantir seu perfume.</p>
     <span class="popup-produto-destaque" id="popupProduto"></span>
     <input type="text" id="popupNome" placeholder="Seu nome" maxlength="60">
-    <input type="tel" id="popupTel" placeholder="Seu WhatsApp (62 9XXXX-XXXX)" maxlength="20">
+    <p class="popup-pagamento">🛵 Pagamento somente na entrega — sem riscos pra você</p>
     <button class="popup-btn" onclick="irParaWhatsApp()">
       <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Falar com especialista agora →
@@ -553,7 +591,6 @@ src="https://www.facebook.com/tr?id=1234186678575456&ev=PageView&noscript=1"/></
     document.getElementById('popupProduto').textContent = produto;
     document.getElementById('popupOverlay').classList.add('active');
     document.getElementById('popupNome').value = '';
-    document.getElementById('popupTel').value = '';
     setTimeout(() => document.getElementById('popupNome').focus(), 100);
     if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', { content_name: produto });
   }
@@ -578,6 +615,9 @@ src="https://www.facebook.com/tr?id=1234186678575456&ev=PageView&noscript=1"/></
   document.getElementById('popupOverlay').addEventListener('click', function(e) {
     if (e.target === this) closePopup();
   });
+
+  const track = document.getElementById('categoriasTrack');
+  if (track) track.innerHTML += track.innerHTML;
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
